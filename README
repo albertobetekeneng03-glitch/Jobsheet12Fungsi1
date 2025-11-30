@@ -1,0 +1,153 @@
+PERTANYAAN DAN JAWABAN PERCOBAAN FUNGSI
+PERCOBAAN 1
+1. Apakah fungsi tanpa parameter selalu harus bertipe void?
+Tidak.
+Fungsi tanpa parameter tidak harus bertipe void. Boleh mengembalikan nilai.
+2. Apakah daftar menu pada program kafe dapat ditampilkan tanpa menggunakan fungsi
+Menu()? Modifikasi kode program tersebut untuk dapat menampilkan daftar menu
+tanpa menggunakan fungsi!
+Bisa. Daftar menu dapat ditampilkan langsung di main().
+3. Jelaskan keuntungan menggunakan fungsi Menu() dibandingkan menulis semua
+perintah penampilan menu langsung di dalam fungsi main.
+Keuntungan memakai fungsi Menu():
+-Kode lebih rapi.
+-Mudah dipanggil ulang.
+-Perubahan menu cukup di satu tempat.
+-Program lebih mudah dibaca.
+4. Uraikan secara singkat alur eksekusi program ketika fungsi Menu() dipanggil dari main
+(mulai dari program dijalankan sampai daftar menu tampil di layar).
+Program mulai → masuk ke main() → Menu() dipanggil → isi Menu() dijalankan → menu tampil → kembali ke main() → selesai.
+
+PERCOBAAN 2
+1. Apakah kegunaan parameter di dalam fungsi?
+Untuk mengirim data dari pemanggil fungsi ke dalam fungsi agar fungsi bisa bekerja sesuai input.
+2. Jelaskan mengapa pada percobaan ini fungsi Menu() menggunakan parameter
+namaPelanggan dan isMember?
+Karena menu ingin menampilkan nama pelanggan dan menyesuaikan output berdasarkan status member.
+3. Apakah parameter sama dengan variabel? Jelaskan.
+Tidak sama, tetapi mirip.
+Parameter adalah variabel khusus yang menerima nilai saat fungsi dipanggil.
+4. Jelaskan bagaimana cara kerja parameter isMember pada fungsi Menu(). Apa
+perbedaan output ketika isMember bernilai true dan ketika false?
+-Jika true → tampil pesan diskon 10% + menu.
+-Jika false → bagian dalam if tidak dijalankan, menu tidak tampil.
+5. Apa yang akan terjadi jika memanggil fungsi Menu() tanpa menyertakan parameter
+namaPelanggan dan isMember?
+Akan muncul error compile:
+"method Menu(String, boolean) cannot be applied to given types".
+6. Modifikasi kode di atas dengan menambahkan parameter baru kodePromo (String).
+Jika kodePromo adalah "DISKON50", tampilkan berikan diskon 50%. Jika kodePromo
+adalah "DISKON30", tampilkan berikan diskon 30%. Jika tidak ada kode promo yang
+berlaku, tampilkan kode invalid.
+sudah
+7. Berdasarkan fungsi Menu() di atas, jika nama pelanggan adalah "Budi", pelanggan
+tersebut member, dan menggunakan kode promo "DISKON30", tuliskan satu baris
+perintah pemanggilan fungsi menu yang benar.
+sudah
+8. Menurut Anda, apakah penggunaan parameter namaPelanggan dan isMember
+pada fungsi Menu() membuat program lebih mudah dibaca dan dikembangkan
+dibandingkan jika nilai-nilai tersebut ditulis langsung di dalam fungsi tanpa parameter?
+Jelaskan alasan Anda.
+iya karna:
+-Data tidak perlu ditulis ulang di dalam fungsi.
+-Fungsi bisa digunakan untuk banyak pelanggan berbeda.
+-Program lebih rapi, fleksibel, dan mudah dikembangkan.
+
+PERCOBAAN 3
+1. Jelaskan secara singkat kapan suatu fungsi membutuhkan nilai kembalian (return
+value) dan kapan fungsi tidak perlu mengembalikan nilai. Berikan minimal satu contoh
+dari program kafe pada Percobaan 3 untuk masing-masing kasus.
+Butuh nilai kembalian → jika hasil perhitungan ingin dipakai lagi oleh program.
+Contoh: hitungTotalHarga() mengembalikan total harga agar bisa ditampilkan.
+Tidak butuh nilai kembalian (void) → jika fungsi hanya menampilkan teks atau melakukan tugas tanpa hasil perhitungan.
+Contoh: fungsi Menu() pada percobaan sebelumnya hanya menampilkan daftar menu.
+2. Fungsi hitungTotalHargaNoAbsen saat ini mengembalikan total harga berdasarkan
+pilihanMenu dan jumlahPesanan. Sebutkan tipe data nilai kembalian dan dua
+buah parameter yang digunakan fungsi tersebut. Jelaskan arti masing-masing
+parameter dalam konteks program kafe.
+Fungsi hitungTotalHarga memiliki:
+-Tipe data nilai kembalian (int)
+-Parameter:
+int pilihanMenu → nomor menu yang dipilih pelanggan
+int banyakItem → jumlah pesanan
+Keduanya digunakan untuk menentukan total harga pesanan.
+3. Modifikasi kode di atas sehingga fungsi hitungTotalHargaNoAbsen dapat menerima
+kodePromo. Jika kodePromo adalah "DISKON50", maka mendapat diskon 50% dari
+totalHarga dan tampilkan diskon. Jika kodePromo adalah "DISKON30", maka
+mendapat diskon 30% dari totalHarga dan tampilkan diskon. Jika tidak ada kode
+promo yang berlaku, tampilkan kode invalid dan tidak ada pengurangan total harga
+totalHarga.
+sudah
+4. Modifikasi kode di atas sehingga bisa memilih beberapa jenis menu berbeda serta
+menampilkan total keseluruhan pesanan. Bagaimana memodifikasi program sehingga
+pengguna dapat: memesan lebih dari satu jenis menu (misalnya menu 1 dan 3
+sekaligus), dan menampilkan total keseluruhan pesanan (gabungan dari semua jenis
+menu)?
+sudah
+
+PERCOBAAN 4
+1. Jelaskan mengapa penulisan parameter di praktikum 4 ditulis dengan String...
+namaPengunjung!
+Karena varargs (...) memungkinkan memasukkan jumlah argumen yang fleksibel (bisa 1, 2, 10, atau 0 nama).
+Sangat cocok untuk daftar pengunjung yang jumlahnya tidak pasti.
+2. Modifikasi method daftarPengunjung menggunakan for-each loop.
+sudah
+3. Bisakah menggunakan dua tipe data varaargs dalam satu fungsi? Jelaskan jawaban
+Anda berdasarkan aturan varargs di Java, dan berikan contohnya!
+Tidak bisa, java hanya mengizinkan satu varargs per method, dan harus berada di posisi terakhir parameter.
+4. Jelaskan apa yang terjadi jika fungsi daftarPengunjung dipanggil tanpa argumen.
+Apakah program akan error saat kompilasi, error saat dijalankan, atau tetap berjalan?
+Jika tetap berjalan, bagaimana output yang dihasilkan?
+Program tetap berjalan, tidak error.
+Varargs akan dianggap sebagai array kosong (length = 0).
+
+PERCOBAAN 5
+1. Sebutkan tahapan dan urutan eksekusi program pada Percobaan 5, mulai dari program
+dijalankan hingga menampilkan luas persegi panjang dan volume balok!
+    a. Program dijalankan → masuk ke main().
+    b. Scanner dibuat untuk input.
+    c. Program meminta input panjang, lebar, tinggi.
+    d. User memasukkan ketiganya.
+    e. Program menghitung L = p * l.
+    f. Program menampilkan: Luas persegi panjang adalah <hasil>
+    g. Program menghitung volume: vol = p * l * t.
+    h. Program menampilkan: Volume balok adalah <hasil>
+    i. Program selesai.
+2. Tuliskan output yang dihasilkan program HitungBalokNoAbsen jika pengguna
+memasukkan panjang = 4, lebar = 3, dan tinggi = 5. Jelaskan secara singkat alur
+jalannya program sampai output tersebut muncul.
+  Luas = 4 × 3 = 12
+  Volume = 4 × 3 × 5 = 60
+  outputnya "Luas persegi panjang adalah 12Volume balok adalah 60"
+  Input → dihitung luas → ditampilkan → volume dihitung → ditampilkan → selesai.
+3. Apakah output dari program di bawah ini kemudian jelaskan alur jalannya program tersebut!
+sudah 
+4. Pada saat apakah fungsi yang kita buat harus menggunakan parameter atau tidak?
+Pada saat apakah fungsi yang kita buat harus memiliki nilai kembalian atau tidak?
+Jelaskan!
+a. Memakai parameter → jika fungsi membutuhkan data dari luar.
+    Contoh: hitungLuas(int P, int L) butuh panjang & lebar.
+b. Tanpa parameter → jika fungsi tidak membutuhkan data dari luar.
+    Contoh: fungsi tampil menu, fungsi tampil identitas, dll.
+c. Memiliki nilai kembalian → jika hasilnya masih dibutuhkan.
+    Contoh: hitungVolume() harus mengembalikan volume ke pemanggil.
+d. Tanpa nilai kembalian (void) → jika hanya menampilkan atau melakukan aksi.
+    Contoh: fungsi cetak menu.
+5. Jelaskan kapan sebuah fungsi sebaiknya menggunakan parameter dan kapan fungsi
+boleh tanpa parameter, dengan mengacu pada fungsi hitungLuas dan hitungVolume
+di Percobaan 5.
+-hitungLuas(P, L) → harus pakai parameter karena nilai panjang & lebar berasal dari input user, bukan diketahui di dalam fungsi.
+-hitungVolume(T, a, b) → harus pakai parameter karena volume membutuhkan nilai tinggi, panjang, dan lebar yang bersifat variatif.
+-Fungsi boleh tanpa parameter hanya jika semua data sudah ada di dalamnya (misalnya fungsi cetak teks).
+6. Jelaskan kapan sebuah fungsi sebaiknya memiliki nilai kembalian (return value) dan
+kapan tidak perlu memiliki nilai kembalian, dengan mengacu pada fungsi main,
+hitungLuas, dan hitungVolume.
+- Butuh return value jika hasil fungsi akan dipakai kembali.
+Contoh:
+hitungLuas() mengembalikan luas
+hitungVolume() mengembalikan volume
+Hasilnya kembali ke main() untuk ditampilkan. 
+- Tidak butuh return value (void) jika hanya melakukan aksi.
+Contoh:
+main() tidak mengembalikan nilai
+Fungsi yang hanya mencetak output cukup void.
